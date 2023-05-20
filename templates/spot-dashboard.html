@@ -1,0 +1,180 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}{{ river.name }} Analysis{% endblock %}
+{% block pagination %}
+<li class="page-item page-indicator">
+    <a class="page-link" href="/">
+        <i class="fas fa-angle-double-left me-2"></i>Previous</a>
+</li>
+{% endblock %}
+{% block style %}
+<link rel="stylesheet" href="{% static 'pd.css' %}">
+{% endblock %}
+{% block content %}
+<div class="row">
+    <div class="col-lg-4">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="d-flex">	
+                            <div class="d-flex me-5">
+                                <span class="fs-26 font-w900" style="text-transform: uppercase;">	
+                                    {{spot.name}}
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-12">
+                <div class="card text-white bg-primary">
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item d-flex justify-content-between"><span class="mb-0">Water Level :</span><strong>{{  spot.waterlevel }} m</strong></li>
+                        <li class="list-group-item d-flex justify-content-between"><span class="mb-0">Daily Forecasted Water Level :</span><strong>{{ spot.pred1waterlevel }} m</strong></li>
+                        <li class="list-group-item d-flex justify-content-between"><span class="mb-0">Weekly Forecasted Water Level :</span><strong>{{ spot.pred7waterlevel }} m</strong></li>
+                        <li class="list-group-item d-flex justify-content-between"><span class="mb-0">Salinity :</span><strong>{{ spot.salinity }} g / L</strong></li>
+                        <li class="list-group-item d-flex justify-content-between"><span class="mb-0">Daily Forecasted Salinity :</span><strong>{{ spot.predsalinity }} g / L</strong></li>
+                        <li class="list-group-item d-flex justify-content-between"><span class="mb-0">Air Pressure :</span><strong>{{ spot.airpressure }} milliBar</strong></li>
+                        <li class="list-group-item d-flex justify-content-between"><span class="mb-0">Air Tempreture :</span><strong>{{ spot.airtempreture }} &#x2103;</strong></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-8">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="card">
+                    <div class="card-header border-0 flex-wrap bg-primary-light">
+                        <h4 class="fs-20 font-w700 mb-2"><a href="">Water Level</a></h4>
+                        <div class="d-flex align-items-center project-tab mb-2">
+                            <div class="card-tabs mt-3 mt-sm-0 mb-3 ">
+                                <ul class="nav nav-tabs" role="tablist">
+                                    <li class="nav-item">
+                                        <a class="nav-link active" data-bs-toggle="tab"
+                                            href="#waterlevel12" role=tab>daily</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" data-bs-toggle="tab" href="#waterlevel21"
+                                            role="tab">monthly</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <div class="tab-content">
+                            <div class="tab-pane fade active show" id="waterlevel12">
+                                <div id="waterlevel1" class="revenueMap"></div>
+                            </div>
+                            <div class="tab-pane fade" id="waterlevel21">
+                                <div id="waterlevel2" class="revenueMap"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-12">
+                <div class="card">
+                    <div class="card-header border-0 flex-wrap bg-primary-light">
+                        <h4 class="fs-20 font-w700 mb-2"><a href="">Salinity</a></h4>
+                        <div class="d-flex align-items-center project-tab mb-2">
+                            <div class="card-tabs mt-3 mt-sm-0 mb-3 ">
+                                <ul class="nav nav-tabs" role="tablist">
+                                    <li class="nav-item">
+                                        <a class="nav-link active" data-bs-toggle="tab"
+                                            href="#salinity12" role=tab>daily</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" data-bs-toggle="tab" href="#salinity21"
+                                            role="tab">monthly</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <div class="tab-content">
+                            <div class="tab-pane fade active show" id="salinity12">
+                                <div id="salinity1" class="revenueMap"></div>
+                            </div>
+                            <div class="tab-pane fade" id="salinity21">
+                                <div id="salinity2" class="revenueMap"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-12">
+                <div class="card">
+                    <div class="card-header border-0 flex-wrap bg-primary-light">
+                        <h4 class="fs-20 font-w700 mb-2"><a href="">Air Pressure</a></h4>
+                        <div class="d-flex align-items-center project-tab mb-2">
+                            <div class="card-tabs mt-3 mt-sm-0 mb-3 ">
+                                <ul class="nav nav-tabs" role="tablist">
+                                    <li class="nav-item">
+                                        <a class="nav-link active" data-bs-toggle="tab"
+                                            href="#airpressure12" role=tab>daily</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" data-bs-toggle="tab" href="#airpressure21"
+                                            role="tab">monthly</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <div class="tab-content">
+                            <div class="tab-pane fade active show" id="airpressure12">
+                                <div id="airpressure1" class="revenueMap"></div>
+                            </div>
+                            <div class="tab-pane fade" id="airpressure21">
+                                <div id="airpressure2" class="revenueMap"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-12">
+                <div class="card">
+                    <div class="card-header border-0 flex-wrap bg-primary-light">
+                        <h4 class="fs-20 font-w700 mb-2"><a href="">Air Tempreture</a></h4>
+                        <div class="d-flex align-items-center project-tab mb-2">
+                            <div class="card-tabs mt-3 mt-sm-0 mb-3 ">
+                                <ul class="nav nav-tabs" role="tablist">
+                                    <li class="nav-item">
+                                        <a class="nav-link active" data-bs-toggle="tab"
+                                            href="#airtempreture12" role=tab>daily</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" data-bs-toggle="tab" href="#airtempreture21"
+                                            role="tab">monthly</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <div class="tab-content">
+                            <div class="tab-pane fade active show" id="airtempreture12">
+                                <div id="airtempreture1" class="revenueMap"></div>
+                            </div>
+                            <div class="tab-pane fade" id="airtempreture21">
+                                <div id="airtempreture2" class="revenueMap"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
+{% block script %}
+{{ data | json_script:"jsdata" }}
+<script src="{% static 'coordinates.js' %}"></script>
+<script src="{% static 'game_dash.js' %}"></script>
+{% endblock %}
