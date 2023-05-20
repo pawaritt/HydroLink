@@ -87,17 +87,27 @@ WSGI_APPLICATION = 'wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.postgresql_psycopg2',
+#         'NAME': 'railway',
+#         'HOST': 'ec2-54-73-22-169.eu-west-1.compute.amazonaws.com',
+#         'USER': 'postgres',
+#         'PASSWORD': '3Pef6EJTSMcTWJOmESxU',
+#         'PORT': '5463'
+#     }
+# }
+
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'railway',
-        'HOST': 'containers-us-west-72.railway.app',
-        'USER': 'postgres',
-        'PASSWORD': '3Pef6EJTSMcTWJOmESxU',
-        'PORT': '5463'
+        'NAME': 'd30tdom90p91q9',
+        'HOST': 'ec2-54-73-22-169.eu-west-1.compute.amazonaws.com',
+        'USER': 'efsiqrapyvmtsx',
+        'PASSWORD': '305036620cbb210242f46a1dab0e5d6bdc65bb6d43a9cb02ee4f7ab5824e1c8e',
+        'PORT': '5432'
     }
 }
-
 
 
 # Password validation
