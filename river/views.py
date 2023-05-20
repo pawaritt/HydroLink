@@ -9,7 +9,7 @@ import json
 from river_model.coordinates import RIVERS, BASE_RIVER
 from river_model.object import Coordinate
 from pickle import load
-from twilio.rest import Client
+# from twilio.rest import Client
 from datetime import date
 
 import pandas as pd
@@ -19,7 +19,7 @@ from satellite.map import DEMFile
 
 account_sid = "AC59bfc33f4bbff7b56419d430124861c4"
 auth_token = "3812a97c3484000c0e7d4f7c8f234cd8"
-client = Client(account_sid, auth_token)
+# client = Client(account_sid, auth_token)
 
 surface = DEMFile()
 

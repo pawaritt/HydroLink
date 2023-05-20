@@ -86,17 +86,26 @@ WSGI_APPLICATION = 'wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
+PROJECT_DIR = os.path.abspath(os.path.dirname(__file__))
+
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'railway',
-        'HOST': 'containers-us-west-72.railway.app',
-        'USER': 'postgres',
-        'PASSWORD': '3Pef6EJTSMcTWJOmESxU',
-        'PORT': '5463'
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': os.path.join(BASE_DIR, 'sqlite.db'),
     }
 }
+
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.postgresql',
+#         'NAME': 'railway',
+#         'HOST': 'containers-us-west-72.railway.app',
+#         'USER': 'postgres',
+#         'PASSWORD': '3Pef6EJTSMcTWJOmESxU',
+#         'PORT': '5463'
+#     }
+# }
 
 # DATABASES = {
 #     'default': {
@@ -159,3 +168,6 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media_cdn')
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+import django_on_heroku
+django_on_heroku.settings(locals())
